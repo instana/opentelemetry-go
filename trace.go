@@ -13,6 +13,7 @@ import (
 //
 // This is short for GetTracerProvider().Tracer(name, opts...)
 func Tracer(name string, opts ...trace.TracerOption) trace.Tracer {
+
 	return GetTracerProvider().Tracer(name, opts...)
 }
 
