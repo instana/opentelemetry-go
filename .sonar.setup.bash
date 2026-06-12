@@ -2,4 +2,4 @@
 
 apt-get -y install golang
 
-go test -v ./... -coverprofile=coverage.out
+make test-coverage
