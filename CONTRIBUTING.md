@@ -1,28 +1,15 @@
-# Contributing to opentelemetry-go
+# Contributing to Instana OpenTelemetry Go
 
-The Go special interest group (SIG) meets regularly. See the
-OpenTelemetry
-[community](https://github.com/open-telemetry/community#golang-sdk)
-repo for information on this and other language SIGs.
+> **Note:** This is a private fork maintained by IBM Instana and is currently in active development. We are not accepting external contributions at this time. This document serves as internal development guidelines for the Instana team.
 
-See the [public meeting
-notes](https://docs.google.com/document/d/1E5e7Ld0NuU1iVvf-42tOBpu2VBBLYnh73GJuITGJTTU/edit)
-for a summary description of past meetings. To request edit access,
-join the meeting or get in touch on
-[Slack](https://cloud-native.slack.com/archives/C01NPAXACKT).
-
-The meeting is open for all to join. We invite everyone to join our
-meeting, regardless of your experience level. Whether you're a
-seasoned OpenTelemetry developer, just starting your journey, or
-simply curious about the work we do, you're more than welcome to
-participate!
+This project is based on the open source [OpenTelemetry Go](https://github.com/open-telemetry/opentelemetry-go) implementation and follows the [OpenTelemetry Specification](https://opentelemetry.io/docs/specs/otel).
 
 ## Development
 
 You can view and edit the source code by cloning this repository:
 
 ```sh
-git clone https://github.com/open-telemetry/opentelemetry-go.git
+git clone https://github.com/instana/opentelemetry-go.git
 ```
 
 Run `make test` to run the tests instead of `go test`.
@@ -64,7 +51,7 @@ This will put the project in `${GOPATH}/src/go.opentelemetry.io/otel`.
 Alternatively, you can use `git` directly with:
 
 ```sh
-git clone https://github.com/open-telemetry/opentelemetry-go
+git clone https://github.com/instana/opentelemetry-go
 ```
 
 (Note that `git clone` is *not* using the `go.opentelemetry.io/otel` name -
