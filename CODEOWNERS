@@ -1,5 +1,15 @@
 #####################################################
 #
+# IMPORTANT: This is a private fork of opentelemetry-go
+# maintained by IBM Instana. The codeowners in this
+# repository differ from the upstream opentelemetry-go
+# project.
+#
+# For the upstream project, see:
+# https://github.com/open-telemetry/opentelemetry-go
+#
+#####################################################
+#
 # List of approvers for this repository
 #
 #####################################################

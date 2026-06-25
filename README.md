@@ -1,5 +1,7 @@
 # Instana OpenTelemetry Go
 
+> **IMPORTANT:** This project is currently in **beta** status and is susceptible to breaking changes. APIs, features, and functionality may change without notice. Use in production environments at your own risk.
+
 ## Overview
 
 Instana OpenTelemetry Go is based on Open Source [OpenTelemetry Go](https://github.com/open-telemetry/opentelemetry-go). It provides an OpenTelemetry implementation which focuses on supporting Instana OpenTelemetry and IBM platforms (S390X Linux, PowerPC Linux, AIX) as well as other platforms (Linux x64/ARM64, macOS, and Windows).
