@@ -1,6 +1,7 @@
 # Instana OpenTelemetry Go
 
-> **IMPORTANT:** This project is currently in **beta** status and is susceptible to breaking changes. APIs, features, and functionality may change without notice. Use in production environments at your own risk.
+> [!IMPORTANT]
+> This project is currently in **beta** status and is susceptible to breaking changes. APIs, features, and functionality may change without notice. Use in production environments at your own risk.
 
 ## Overview
 
