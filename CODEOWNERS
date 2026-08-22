@@ -1,17 +1,17 @@
 #####################################################
 #
-# List of approvers for this repository
+# IMPORTANT: This is a private fork of opentelemetry-go
+# maintained by IBM Instana. The codeowners in this
+# repository differ from the upstream opentelemetry-go
+# project.
+#
+# For the upstream project, see:
+# https://github.com/open-telemetry/opentelemetry-go
 #
 #####################################################
 #
-# Learn about membership in OpenTelemetry community:
-#  https://github.com/open-telemetry/community/blob/main/guides/contributor/membership.md
+# List of approvers for this repository
 #
-#
-# Learn about CODEOWNERS file format:
-#  https://help.github.com/en/articles/about-code-owners
-#
+#####################################################
 
-* @MrAlias @XSAM @dashpole @pellared @dmathieu @flc1125
-
-CODEOWNERS @MrAlias @pellared @dashpole @XSAM @dmathieu
+* @eng-go
