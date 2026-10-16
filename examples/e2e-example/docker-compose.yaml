@@ -1,0 +1,61 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Instana opentelemetry-go — e2e example stack
+#
+# Starts three services in dependency order:
+#   1. jaeger      — all-in-one, receives OTLP traces, UI on http://localhost:16686
+#   2. collector   — OTel Collector, receives OTLP/gRPC from the app and
+#                    forwards to Jaeger; also logs spans to stdout
+#   3. app         — the e2e-example binary (order service :8080 + payment :8081)
+#
+# Usage:
+#   docker compose up --build
+#
+# Then send a test request:
+#   curl http://localhost:8080/order/42
+#
+# Open Jaeger UI:
+#   http://localhost:16686  →  select "order-service"  →  Find Traces
+# ─────────────────────────────────────────────────────────────────────────────
+
+services:
+
+  # ── Jaeger all-in-one ───────────────────────────────────────────────────────
+  jaeger:
+    image: jaegertracing/jaeger:latest
+    container_name: jaeger
+    ports:
+      - "16686:16686"   # Jaeger UI
+      - "14317:4317"    # OTLP/gRPC (collector → jaeger); not exposed to host
+    environment:
+      - COLLECTOR_OTLP_ENABLED=true
+    restart: unless-stopped
+
+  # ── OpenTelemetry Collector ─────────────────────────────────────────────────
+  collector:
+    image: ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib:latest
+    container_name: otel-collector
+    command: ["--config=/etc/otelcol/config.yaml"]
+    volumes:
+      - ./otelcollector-config.yaml:/etc/otelcol/config.yaml:ro
+    ports:
+      - "4317:4317"   # OTLP/gRPC — app sends traces here
+      - "4318:4318"   # OTLP/HTTP  — available but not used by this example
+    depends_on:
+      - jaeger
+    restart: unless-stopped
+
+  # ── e2e-example app ─────────────────────────────────────────────────────────
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: e2e-app
+    ports:
+      - "8080:8080"   # order service
+      - "8081:8081"   # payment service
+    environment:
+      # Point the OTLP exporter at the collector container, not localhost.
+      - OTEL_EXPORTER_OTLP_ENDPOINT=collector:4317
+    depends_on:
+      - collector
+    restart: unless-stopped
